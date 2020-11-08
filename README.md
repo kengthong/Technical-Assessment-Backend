@@ -34,41 +34,25 @@
 $ npm install
 ```
 
+## Setting up Postgres
+Commands to run
+
+Installing postgres on Mac
+1. brew install postgresql
+2. pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+
+Connect to postgres
+3. psql postgres
+
+Creating database
+3. CREATE DATABASE DEV; 
+
 ## Running the app
 
 ```bash
 # development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+$ yarn start
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 

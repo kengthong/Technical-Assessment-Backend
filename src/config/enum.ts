@@ -1,0 +1,14 @@
+export enum HouseholdType {
+  LANDED = 'LANDED',
+  CONDOMINIUM = 'CONDOMINIUM',
+  HDB = 'HDB',
+}
+
+export enum MaritalStatus {
+  SINGLE = 'SINGLE',
+  MARRIED = 'MARRIED',
+  WIDOWED = 'WIDOWED',
+  SEPARATED = 'SEPARATED',
+  DIVORCED = 'DIVORCED',
+  NOTREPORTED = 'NOTREPORTED',
+}
