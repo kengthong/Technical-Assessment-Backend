@@ -26,7 +26,7 @@ export class HouseholdMapper {
       dto.address = entity.address;
       dto.type = entity.type;
       dto.householdId = entity.householdId;
-      dto.members = entity.members.map( p => PersonMapper.toDto(p));
+      dto.members = entity.members && entity.members.map( p => PersonMapper.toDto(p)) || [];
       return dto;
   }
 

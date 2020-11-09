@@ -30,4 +30,8 @@ export class PersonService {
   async save(personEntity: PersonEntity): Promise<PersonEntity>{
     return await this.personRepository.save(personEntity);
   }
+
+  async remove(personEntity: PersonEntity): Promise<PersonEntity> {
+    return await this.personRepository.remove(personEntity);
+  }
 }

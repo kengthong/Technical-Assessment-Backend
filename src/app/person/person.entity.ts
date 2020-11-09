@@ -29,7 +29,7 @@ export class PersonEntity {
   })
   maritalStatus: MaritalStatusEnum;
 
-  @Column({ name: 'spouse', type: 'text' })
+  @Column({ name: 'spouse', type: 'text', nullable: true})
   spouse: string;
 
   @Column({
@@ -43,8 +43,8 @@ export class PersonEntity {
   @Column({ name: 'annualIncome', type: 'numeric' })
   annualIncome: number;
 
-  @Column({ name: 'dob', type: 'text' })
-  dob: string;
+  @Column({ name: 'dob', type: 'timestamp' })
+  dob: Date;
 
   @ManyToOne(() => HouseholdEntity,
       household => household.members,

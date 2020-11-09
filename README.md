@@ -60,6 +60,6 @@ Commands to run
 $ yarn start
 ```
 
-## License
-
-  Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### Assumptions:
+1. When adding members to the family, nric input is unique
+2. Each person is only part of one household

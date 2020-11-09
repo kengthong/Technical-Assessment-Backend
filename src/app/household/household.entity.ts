@@ -26,6 +26,6 @@ export class HouseholdEntity {
 
   @OneToMany(() => PersonEntity,
     (person) => person.household,
-    { cascade: ['insert', 'update'], eager: true })
+    { cascade: ['insert', 'update', 'remove'], eager: true, onDelete: 'CASCADE'})
   members: PersonEntity[];
 }

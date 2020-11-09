@@ -9,7 +9,7 @@ export class PersonDto {
     spouse?: string;
 
     annualIncome?: number;
-    dob?: string;
+    dob?: Date;
     nric?: string;
 
     @IsEnum(OccupationTypeEnum)
