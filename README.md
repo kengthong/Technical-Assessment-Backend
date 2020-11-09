@@ -37,15 +37,21 @@ $ npm install
 ## Setting up Postgres
 Commands to run
 
-Installing postgres on Mac
+   ###Installing postgres on Mac
 1. brew install postgresql
 2. pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 
-Connect to postgres
+   ###Connect to postgres
 3. psql postgres
 
-Creating database
-3. CREATE DATABASE DEV; 
+   ###Creating database
+4. CREATE DATABASE DEV
+5. After you are done, exit postgres by typing \q
+
+   ###Database migration and seeding
+5. yarn run migration:run
+6. yarn run seed:run
+
 
 ## Running the app
 

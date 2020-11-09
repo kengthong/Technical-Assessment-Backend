@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { MaritalStatus } from '../../config/enum';
+import { GenderEnum, MaritalStatusEnum, OccupationTypeEnum } from '../../config/enum';
 import { HouseholdEntity } from '../household/household.entity';
 
 @Entity('person')
@@ -10,22 +10,35 @@ export class PersonEntity {
   @Column({ name: 'name', type: 'text' })
   name: string;
 
-  @Column({ name: 'gender', type: 'text' })
-  gender: string;
+  @Column({name: 'nric', type: 'text', unique: true})
+  nric: string;
+
+  @Column({
+    name: 'gender',
+    type: 'text',
+    enum: GenderEnum,
+    default: GenderEnum.NULL
+  })
+  gender: GenderEnum;
 
   @Column({
     name: 'maritalStatus',
-    type: 'enum',
-    enum: MaritalStatus,
-    default: MaritalStatus.SINGLE,
+    type: 'text',
+    enum: MaritalStatusEnum,
+    default: MaritalStatusEnum.SINGLE
   })
-  type: MaritalStatus;
+  maritalStatus: MaritalStatusEnum;
 
   @Column({ name: 'spouse', type: 'text' })
   spouse: string;
 
-  @Column({ name: 'occupationType', type: 'text' })
-  occupationType: string;
+  @Column({
+    name: 'occupationType',
+    type: 'text',
+    enum: OccupationTypeEnum,
+    default: OccupationTypeEnum.UNEMPLOYED
+  })
+  occupationType: OccupationTypeEnum;
 
   @Column({ name: 'annualIncome', type: 'numeric' })
   annualIncome: number;
@@ -33,6 +46,8 @@ export class PersonEntity {
   @Column({ name: 'dob', type: 'text' })
   dob: string;
 
-  @ManyToOne(() => HouseholdEntity, (household) => household.members)
+  @ManyToOne(() => HouseholdEntity,
+      household => household.members,
+    { cascade: ['insert', 'update'], eager: false })
   household: HouseholdEntity;
 }

@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { HouseholdType } from '../../config/enum';
+import { HouseholdTypeEnum } from '../../config/enum';
 import { PersonEntity } from '../person/person.entity';
 
 @Entity('household')
@@ -10,11 +10,22 @@ export class HouseholdEntity {
   @Column({
     name: 'type',
     type: 'enum',
-    enum: HouseholdType,
-    default: HouseholdType.HDB,
+    enum: HouseholdTypeEnum,
+    default: HouseholdTypeEnum.HDB,
   })
-  type: HouseholdType;
+  type: HouseholdTypeEnum;
 
-  @OneToMany(() => PersonEntity, (person) => person.household)
+  @Column({
+    name: 'address',
+    type: 'text',
+    unique: true
+  })
+  address: string;
+
+
+
+  @OneToMany(() => PersonEntity,
+    (person) => person.household,
+    { cascade: ['insert', 'update'], eager: true })
   members: PersonEntity[];
 }

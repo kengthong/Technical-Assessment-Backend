@@ -18,11 +18,13 @@ export class DBProviderModule {
       // password: process.env.DB_PASS,
       entities: entitiesList,
       keepConnectionAlive: true,
-      synchronize: true,
+      synchronize: false,
       ssl: false,
       extra: {
         connectionLimit: 10 /* connection pooling */,
       },
+      migrationsRun: true,
+      migrations: ['src/migration/*{.ts,.js}']
     });
   }
 }
